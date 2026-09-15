@@ -229,7 +229,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .hero { padding-top: var(--nav-h); }
 .hero__banner img { width: 100%; height: auto; display: block; }
 
-.hero__content { padding: 4rem 0 5rem; max-width: 880px; }
+.hero__content { padding: 2rem 0 0.5rem; max-width: 880px; }
 .hero__title {
   color: var(--heading);
   font-size: clamp(2.1rem, 5.2vw, 3.6rem);
@@ -243,7 +243,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .grad--2 { background: linear-gradient(90deg, #a8157d, #e0489b); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .grad--3 { background: linear-gradient(90deg, #f59b29, #ff8a3d); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
-.hero__sub { color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); max-width: 580px; margin-bottom: 2.2rem; }
+.hero__sub { color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); max-width: 580px; margin-bottom: 0.5rem; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
 
 /* Indicador de scroll */
@@ -614,7 +614,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 
 @media (max-width: 768px) {
-  .section { padding: 5rem 0; }
+  .section { padding: 2rem 0; }
 
   .nav__actions .btn--primary { display: none; }
   .nav__toggle { display: block; }
@@ -670,4 +670,19 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
+.edital__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: stretch; /* Estica ambos os botões para terem a mesma largura */
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: auto;
+}
 
+.edital__actions .btn {
+  width: 100%;           /* Ocupa toda a largura do container */
+  justify-content: center; /* Centraliza o texto e o ícone dentro do botão */
+  text-align: center;
+  white-space: nowrap;    /* Evita que o texto quebre em duas linhas */
+}
