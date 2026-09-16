@@ -686,3 +686,53 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   text-align: center;
   white-space: nowrap;    /* Evita que o texto quebre em duas linhas */
 }
+
+/* --- Responsividade do Card de Editais --- */
+
+/* No computador: alinha à direita e empilha os dois botões */
+.edital__actions {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  width: 260px !important;
+  max-width: 100% !important;
+  margin-left: auto !important;
+  flex-shrink: 0 !important;
+}
+
+.edital__actions .btn {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+}
+
+.edital__actions .btn i {
+  margin-left: 8px !important;
+}
+
+/* No celular (telas menores que 768px): empilha tudo verticalmente */
+@media (max-width: 768px) {
+  .edital {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.25rem !important;
+  }
+
+  .edital__body {
+    width: 100% !important;
+  }
+
+  .edital__actions {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .edital__actions .btn {
+    width: 100% !important;
+  }
+}
