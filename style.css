@@ -153,56 +153,36 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .btn--block { width: 100%; justify-content: center; }
 
 /* ============================================================
-   CORREÇÃO DEFINITIVA DO BOTÃO ALTO (TERMO DE AUTORIZAÇÃO)
+   BOTÃO "TERMO DE AUTORIZAÇÃO" — SOLUÇÃO DEFINITIVA
    ============================================================ */
 
-/* 1. Garante que a coluna de botões tenha largura suficiente para o texto */
-.edital__actions {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 0 0 380px; /* Força a coluna a ter 380px de largura. Ajuste se necessário. */
-  max-width: 100%;
-}
-
-/* 2. Estilo do botão alto */
-.edital__actions .btn--tall {
-  white-space: normal !important;   /* OBRIGATÓRIO: permite quebra de linha no texto */
-  height: auto !important;          /* Altura cresce conforme o conteúdo */
-  min-height: 80px;                 /* Altura mínima confortável */
-  padding: 16px 20px !important;    /* Respiro interno em cima e embaixo */
-  display: flex !important;
-  flex-wrap: wrap !important;       /* Permite que o ícone desça se faltar espaço */
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1.4;
-  gap: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  overflow-wrap: break-word;        /* Garante que palavras longas quebrem */
+/* 1) O botão vira bloco: o texto quebra como um parágrafo normal */
+a.btn--tall {
+  display: block !important;
+  white-space: normal !important;
+  height: auto !important;
+  min-height: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 18px 22px !important;
+  text-align: center !important;
+  line-height: 1.4 !important;
+  box-sizing: border-box !important;
+  overflow-wrap: anywhere;
   word-break: break-word;
 }
 
-/* 3. O texto ocupa o espaço necessário e centraliza */
-.edital__actions .btn--tall span {
-  flex: 1 1 auto;
-  text-align: center;
+/* 2) O texto dentro do span quebra normalmente */
+a.btn--tall > span {
+  display: inline;
+  white-space: normal !important;
 }
 
-/* 4. O ícone não encolhe e fica alinhado */
-.edital__actions .btn--tall i {
-  flex: 0 0 auto;
-}
-
-/* 5. Ajuste para telas menores (celular) */
-@media (max-width: 768px) {
-  .edital__actions {
-    flex: 1 1 100%;
-  }
-  .edital__actions .btn--tall {
-    min-height: 90px;
-  }
+/* 3) O ícone fica na linha de baixo, centralizado, sem atrapalhar */
+a.btn--tall > i {
+  display: block;
+  margin-top: 8px;
+  font-size: 1em;
 }
 
 /* ---------- Header / Navbar ---------- */
