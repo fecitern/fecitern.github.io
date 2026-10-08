@@ -152,6 +152,29 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .btn--sm { padding: .6rem 1.1rem; font-size: .85rem; }
 .btn--block { width: 100%; justify-content: center; }
 
+/* Botão em formato "alto" — permite quebra de linha e cresce conforme o conteúdo */
+.btn--tall {
+  height: auto;
+  min-height: 72px;            /* garante altura mínima confortável */
+  padding: 14px 20px;          /* respiro interno em cima/baixo */
+  white-space: normal;         /* permite quebrar o texto em várias linhas */
+  text-align: center;
+  line-height: 1.3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  vertical-align: middle;
+}
+
+/* Em telas pequenas, deixa ainda mais alto e ocupa a largura toda */
+@media (max-width: 600px) {
+  .btn--tall {
+    width: 100%;
+    min-height: 88px;
+  }
+}
+
 /* ---------- Header / Navbar ---------- */
 .nav {
   position: fixed;
