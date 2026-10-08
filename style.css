@@ -152,26 +152,49 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .btn--sm { padding: .6rem 1.1rem; font-size: .85rem; }
 .btn--block { width: 100%; justify-content: center; }
 
-/* Botão em formato "alto" — permite quebra de linha e cresce conforme o conteúdo */
-.btn--tall {
-  height: auto;
-  min-height: 72px;            /* garante altura mínima confortável */
-  padding: 14px 20px;          /* respiro interno em cima/baixo */
-  white-space: normal;         /* permite quebrar o texto em várias linhas */
-  text-align: center;
-  line-height: 1.3;
-  display: inline-flex;
+/* ============================================================
+   CORREÇÃO DO BOTÃO ALTO (TERMO DE AUTORIZAÇÃO)
+   ============================================================ */
+
+/* 1. Força o botão a quebrar o texto e crescer verticalmente */
+.edital__actions .btn--tall {
+  white-space: normal !important;   /* OBRIGATÓRIO: desativa o nowrap do .btn padrão */
+  height: auto !important;          /* Permite que a altura cresça conforme o texto */
+  min-height: 72px;                 /* Altura mínima confortável */
+  padding: 16px 20px !important;    /* Respiro interno em cima e embaixo */
+  display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  vertical-align: middle;
+  text-align: center;
+  line-height: 1.4;
+  gap: 10px;
+  width: 100%;                      /* Ocupa toda a largura da coluna de botões */
+  max-width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
 }
 
-/* Em telas pequenas, deixa ainda mais alto e ocupa a largura toda */
-@media (max-width: 600px) {
-  .btn--tall {
-    width: 100%;
-    min-height: 88px;
+/* Garante que o ícone da setinha não seja esmagado nem jogado para fora */
+.edital__actions .btn--tall i {
+  flex-shrink: 0;
+}
+
+/* 2. Ajusta a coluna de botões para não espremer o botão do termo */
+.edital__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1 1 320px; /* Dá uma largura mínima de 320px para a coluna de botões */
+  max-width: 100%;
+}
+
+/* 3. Ajuste opcional para telas menores (celular) */
+@media (max-width: 768px) {
+  .edital__actions {
+    flex: 1 1 100%;
+  }
+  .edital__actions .btn--tall {
+    min-height: 88px; /* Mais alto ainda no celular para caber bem */
   }
 }
 
