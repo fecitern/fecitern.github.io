@@ -153,48 +153,55 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .btn--block { width: 100%; justify-content: center; }
 
 /* ============================================================
-   CORREÇÃO DO BOTÃO ALTO (TERMO DE AUTORIZAÇÃO)
+   CORREÇÃO DEFINITIVA DO BOTÃO ALTO (TERMO DE AUTORIZAÇÃO)
    ============================================================ */
 
-/* 1. Força o botão a quebrar o texto e crescer verticalmente */
+/* 1. Garante que a coluna de botões tenha largura suficiente para o texto */
+.edital__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 0 0 380px; /* Força a coluna a ter 380px de largura. Ajuste se necessário. */
+  max-width: 100%;
+}
+
+/* 2. Estilo do botão alto */
 .edital__actions .btn--tall {
-  white-space: normal !important;   /* OBRIGATÓRIO: desativa o nowrap do .btn padrão */
-  height: auto !important;          /* Permite que a altura cresça conforme o texto */
-  min-height: 72px;                 /* Altura mínima confortável */
+  white-space: normal !important;   /* OBRIGATÓRIO: permite quebra de linha no texto */
+  height: auto !important;          /* Altura cresce conforme o conteúdo */
+  min-height: 80px;                 /* Altura mínima confortável */
   padding: 16px 20px !important;    /* Respiro interno em cima e embaixo */
-  display: inline-flex !important;
+  display: flex !important;
+  flex-wrap: wrap !important;       /* Permite que o ícone desça se faltar espaço */
   align-items: center;
   justify-content: center;
   text-align: center;
   line-height: 1.4;
   gap: 10px;
-  width: 100%;                      /* Ocupa toda a largura da coluna de botões */
-  max-width: 100%;
+  width: 100%;
   box-sizing: border-box;
-  word-wrap: break-word;
+  overflow-wrap: break-word;        /* Garante que palavras longas quebrem */
+  word-break: break-word;
 }
 
-/* Garante que o ícone da setinha não seja esmagado nem jogado para fora */
+/* 3. O texto ocupa o espaço necessário e centraliza */
+.edital__actions .btn--tall span {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+/* 4. O ícone não encolhe e fica alinhado */
 .edital__actions .btn--tall i {
-  flex-shrink: 0;
+  flex: 0 0 auto;
 }
 
-/* 2. Ajusta a coluna de botões para não espremer o botão do termo */
-.edital__actions {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1 1 320px; /* Dá uma largura mínima de 320px para a coluna de botões */
-  max-width: 100%;
-}
-
-/* 3. Ajuste opcional para telas menores (celular) */
+/* 5. Ajuste para telas menores (celular) */
 @media (max-width: 768px) {
   .edital__actions {
     flex: 1 1 100%;
   }
   .edital__actions .btn--tall {
-    min-height: 88px; /* Mais alto ainda no celular para caber bem */
+    min-height: 90px;
   }
 }
 
