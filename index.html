@@ -415,6 +415,36 @@
     </div>
   </div>
   
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const popup = document.getElementById('imagePopup');
+    const closeBtn = document.getElementById('popupClose');
+    const overlay = document.getElementById('popupOverlay');
+
+    const openPopup = () => {
+      popup.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden'; // Evita scroll do fundo
+    };
+
+    const closePopup = () => {
+      popup.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    };
+
+    // Abre o popup 600ms após carregar a página
+    setTimeout(openPopup, 600);
+
+    // Eventos para fechar
+    closeBtn.addEventListener('click', closePopup);
+    overlay.addEventListener('click', closePopup);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !popup.hasAttribute('hidden')) {
+        closePopup();
+      }
+    });
+  });
+</script>
+  
   <!-- 1. Importa o motor do GLightbox -->
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
