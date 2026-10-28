@@ -152,39 +152,6 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .btn--sm { padding: .6rem 1.1rem; font-size: .85rem; }
 .btn--block { width: 100%; justify-content: center; }
 
-/* ============================================================
-   BOTÃO "TERMO DE AUTORIZAÇÃO" — SOLUÇÃO DEFINITIVA
-   ============================================================ */
-
-/* 1) O botão vira bloco: o texto quebra como um parágrafo normal */
-a.btn--tall {
-  display: block !important;
-  white-space: normal !important;
-  height: auto !important;
-  min-height: 0 !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  padding: 18px 22px !important;
-  text-align: center !important;
-  line-height: 1.4 !important;
-  box-sizing: border-box !important;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-}
-
-/* 2) O texto dentro do span quebra normalmente */
-a.btn--tall > span {
-  display: inline;
-  white-space: normal !important;
-}
-
-/* 3) O ícone fica na linha de baixo, centralizado, sem atrapalhar */
-a.btn--tall > i {
-  display: block;
-  margin-top: 8px;
-  font-size: 1em;
-}
-
 /* ---------- Header / Navbar ---------- */
 .nav {
   position: fixed;
@@ -262,7 +229,7 @@ a.btn--tall > i {
 .hero { padding-top: var(--nav-h); }
 .hero__banner img { width: 100%; height: auto; display: block; }
 
-.hero__content { padding: 2rem 0 0.5rem; max-width: 880px; }
+.hero__content { padding: 4rem 0 5rem; max-width: 880px; }
 .hero__title {
   color: var(--heading);
   font-size: clamp(2.1rem, 5.2vw, 3.6rem);
@@ -276,7 +243,7 @@ a.btn--tall > i {
 .grad--2 { background: linear-gradient(90deg, #a8157d, #e0489b); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .grad--3 { background: linear-gradient(90deg, #f59b29, #ff8a3d); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
-.hero__sub { color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); max-width: 580px; margin-bottom: 0.5rem; }
+.hero__sub { color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); max-width: 580px; margin-bottom: 2.2rem; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
 
 /* Indicador de scroll */
@@ -647,7 +614,7 @@ a.btn--tall > i {
 }
 
 @media (max-width: 768px) {
-  .section { padding: 2rem 0; }
+  .section { padding: 5rem 0; }
 
   .nav__actions .btn--primary { display: none; }
   .nav__toggle { display: block; }
@@ -703,69 +670,57 @@ a.btn--tall > i {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
-.edital__actions {
+
+/* Card do Regulamento / Editais */
+.regulamento__card,
+.edital__card {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  align-items: stretch; /* Estica ambos os botões para terem a mesma largura */
-  justify-content: center;
-  flex-shrink: 0;
-  margin-left: auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  padding: 2.5rem;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  max-width: 960px;
+  margin-inline: auto;
 }
 
-.edital__actions .btn {
-  width: 100%;           /* Ocupa toda a largura do container */
-  justify-content: center; /* Centraliza o texto e o ícone dentro do botão */
-  text-align: center;
-  white-space: nowrap;    /* Evita que o texto quebre em duas linhas */
+/* Área central de texto */
+.regulamento__content,
+.edital__content {
+  flex: 1 1 auto;
+  min-width: 0; /* Previne quebras forçadas de palavras e estouro no Flexbox */
 }
 
-/* --- Responsividade do Card de Editais --- */
+.regulamento__title,
+.edital__title {
+  color: var(--heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0.4rem 0 0.8rem;
+}
 
-/* No computador: alinha à direita e empilha os dois botões */
+/* Coluna de botões à direita (alinhada na vertical em fila única) */
+.regulamento__actions,
 .edital__actions {
   display: flex !important;
-  flex-direction: column !important;
-  gap: 10px !important;
-  width: 260px !important;
-  max-width: 100% !important;
-  margin-left: auto !important;
-  flex-shrink: 0 !important;
+  flex-direction: column !important; /* Força os botões a ficarem empilhados */
+  flex-wrap: nowrap !important;
+  flex-shrink: 0;
+  gap: 0.75rem;
+  width: 260px; /* Largura padrão uniforme idêntica à segunda imagem */
 }
 
+.regulamento__actions .btn,
 .edital__actions .btn {
-  width: 100% !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  text-align: center !important;
-  box-sizing: border-box !important;
-  white-space: nowrap !important;
-}
-
-.edital__actions .btn i {
-  margin-left: 8px !important;
-}
-
-/* No celular (telas menores que 768px): empilha tudo verticalmente */
-@media (max-width: 768px) {
-  .edital {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 1.25rem !important;
-  }
-
-  .edital__body {
-    width: 100% !important;
-  }
-
-  .edital__actions {
-    width: 100% !important;
-    margin-left: 0 !important;
-  }
-
-  .edital__actions .btn {
-    width: 100% !important;
-  }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.7rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
