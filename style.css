@@ -724,34 +724,3 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   font-weight: 600;
   white-space: nowrap;
 }
-
-@media (max-width: 768px) {
-  .container-regulamento {
-    flex-direction: column; /* Empilha texto e botões verticalmente */
-    align-items: stretch; /* Faz os elementos ocuparem a largura total */
-    gap: 20px;
-    padding: 15px; /* Margem interna para não colar nas bordas */
-  }
-
-  .conteudo-texto {
-    width: 100%;
-  }
-
-  /* Correção da quebra de texto (uma palavra por linha) */
-  .conteudo-texto h2, 
-  .conteudo-texto p {
-    word-break: normal; /* Evita quebrar palavras no meio */
-    overflow-wrap: break-word; /* Permite quebra apenas se a palavra for maior que a tela */
-    hyphens: auto; /* Adiciona hífen em palavras longas (opcional) */
-  }
-
-  .container-botoes {
-    width: 100%; /* Botões ocupam toda a largura disponível */
-  }
-
-  .btn {
-    width: 100%; /* Botões ocupam toda a largura do contêiner */
-    text-align: center;
-    box-sizing: border-box; /* Garante que o padding não estoure a largura */
-  }
-}
