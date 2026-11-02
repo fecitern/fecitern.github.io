@@ -724,3 +724,43 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   font-weight: 600;
   white-space: nowrap;
 }
+
+/* ---------- Mobile: Regulamento empilhado em coluna ---------- */
+@media (max-width: 768px) {
+  .regulamento__card,
+  .edital__card {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  /* Ícone roxo: alinhado à esquerda, sem sobrepor o conteúdo */
+  .regulamento__card > .card__icon,
+  .edital__card > .card__icon {
+    align-self: flex-start;
+    margin-bottom: 0;
+  }
+
+  /* Texto ocupa 100% da largura útil do card */
+  .regulamento__content,
+  .edital__content {
+    flex: 1 1 100%;
+    min-width: 100%;
+    width: 100%;
+  }
+
+  /* Botões logo abaixo do texto, em largura total */
+  .regulamento__actions,
+  .edital__actions {
+    width: 100%;
+    flex-shrink: 1;
+  }
+
+  .regulamento__actions .btn,
+  .edital__actions .btn {
+    width: 100%;
+    white-space: normal;
+  }
+}
