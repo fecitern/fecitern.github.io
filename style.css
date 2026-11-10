@@ -469,6 +469,10 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .oficinas__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: stretch; }
 .oficinas__grid .card__media { max-height: 320px; overflow: hidden; }
 
+/* Banner do avaliador (portrait): exibir a imagem inteira ocupando todo o quadro */
+#avaliador .card__media { max-height: none; overflow: visible; }
+#avaliador .card__media img { height: auto; }
+
 /* ---------- Editais ---------- */
 .edital {
   display: grid; grid-template-columns: auto 1fr auto; gap: 1.5rem; align-items: center;
