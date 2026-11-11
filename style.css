@@ -229,6 +229,10 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .hero { padding-top: var(--nav-h); }
 .hero__banner img { width: 100%; height: auto; display: block; }
 
+/* ---------- Apoio ---------- */
+.apoio { margin: 0; }
+.apoio img { width: 100%; height: auto; display: block; }
+
 .hero__content { padding: 4rem 0 5rem; max-width: 880px; }
 .hero__title {
   color: var(--heading);
